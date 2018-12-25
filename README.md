@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/renderorange/password.svg?branch=master)](https://travis-ci.org/renderorange/password) [![Coverage Status](https://coveralls.io/repos/github/renderorange/password/badge.svg?branch=master)](https://coveralls.io/github/renderorange/password?branch=master)
+
 # password
 
 generate cryptographically secure passwords
@@ -21,9 +23,13 @@ password [--length] <int>
 
 ## DESCRIPTION
 
-This script generates cryptographically secure random passwords, using alphanumeric characters with case variation.
+password generates cryptographically secure random passwords, using alphanumeric characters with case variation.
+
+The logic can be used directly as a script or used as a module.
 
 ## EXAMPLES
+
+### As a script
 
 Get a 12 character length password
 
@@ -37,6 +43,53 @@ Get a 32 character length password
 password --length 32
 ```
 
+### As a module
+
+Get a 12 character length password
+
+```
+require 'password';
+my $object = password->new( length => 12 );
+
+print $object->generate() . "\n"; 
+```
+
+## SUBROUTINES/METHODS
+
+### new
+
+Constructor for the password object.
+
+#### ARGUMENTS
+
+##### length
+
+The length of the password to be generated.
+
+Must be a positive integer.
+
+#### RETURNS
+
+The password object.
+
+#### EXCEPTIONS
+
+##### length must be a positive integer
+
+This exception is thrown when verification of the length argument doesn't pass.
+
+### generate
+
+Generates the password based on the length as defined through the constructor.
+
+#### ARGUMENTS
+
+None.
+
+#### RETURNS
+
+The generated password string.
+
 ## EXIT STATUS
 
 - 0 - Indicates completion without failure
@@ -47,6 +100,7 @@ password --length 32
 - strictures
 - Getopt::Long
 - Pod::Usage
+- Math::Pari
 - Crypt::Random
 
 ## AUTHOR

@@ -6,7 +6,7 @@ use FindBin ();
 
 my $class = 'password';
 
-require "$FindBin::Bin/../$class";
+require "$FindBin::Bin/../../$class";
 
 HAPPY_PATH: {
     note( 'happy path' );

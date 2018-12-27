@@ -16,7 +16,7 @@ use_ok($_) foreach @required_modules;
 
 my $class = 'password';
 
-require_ok( "$FindBin::Bin/../$class" );
+require_ok( "$FindBin::Bin/../../$class" );
 
 my @methods = qw{
     new

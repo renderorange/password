@@ -19,7 +19,7 @@ LENGTH: {
 
     like( $stdout, qr/^[a-z0-9]{$expected_length}$/i, 'returned string contains expected characters' );
     ok( !$stderr, 'no output was produced to stderr' );
-    is( $exit, 0, 'exit value was 0');
+    is( $exit, 0, 'exit value was 0' );
 }
 
 VERSION: {
@@ -31,9 +31,9 @@ VERSION: {
         system( $password_bin, @options );
     };
 
-    like( $stdout, qr/\d+\.\d+\.\d+$/i, 'returned string contains expected characters' );
+    like( $stdout, qr/\d+\.\d+\.\d+$/, 'returned string contains expected characters' );
     ok( !$stderr, 'no output was produced to stderr' );
-    is( $exit, 0, 'exit value was 0');
+    is( $exit, 0, 'exit value was 0' );
 }
 
 HELP: {
@@ -45,10 +45,10 @@ HELP: {
         system( $password_bin, @options );
     };
 
-    like( $stdout, qr/Usage/i, 'returned output contains Usage section' );
-    like( $stdout, qr/Options/i, 'returned output contains Options section' );
+    like( $stdout, qr/Usage/, 'returned output contains Usage section' );
+    like( $stdout, qr/Options/, 'returned output contains Options section' );
     ok( !$stderr, 'no output was produced to stderr' );
-    is( $exit, 0, 'exit value was 0');
+    is( $exit, 0, 'exit value was 0' );
 }
 
 MAN: {
@@ -60,7 +60,7 @@ MAN: {
         system( $password_bin, @options );
     };
 
-    like( $stdout, qr/$_/i, "returned output contains $_ section" )
+    like( $stdout, qr/$_/, "returned output contains $_ section" )
         foreach (
             'NAME', 'SYNOPSIS', 'OPTIONS', 'DESCRIPTION', 'EXAMPLES',
             'SUBROUTINES/METHODS', 'EXIT', 'STATUS', 'DEPENDENCIES',
@@ -68,7 +68,24 @@ MAN: {
         );
 
     ok( !$stderr, 'no output was produced to stderr' );
-    is( $exit, 0, 'exit value was 0');
+    is( $exit, 0, 'exit value was 0' );
+}
+
+EXCEPTIONS: {
+    note( 'exceptions' );
+
+    my $invalid_length = 'a';
+    my $expected_error = qq(Value "$invalid_length" invalid for option length);
+    my $expected_exit_value = 1;
+    my @options = ( '--length', $invalid_length );
+
+    my ( $stdout, $stderr, $exit ) = Capture::Tiny::capture {
+        system( $password_bin, @options );
+    };
+
+    like( $stderr, qr/$expected_error/, 'returned stderr contains the expected error' );
+    like( $stdout, qr/Usage/, 'returned stdout contains Usage section' );
+    is( $exit, $expected_exit_value, "exit value was $expected_exit_value" );
 }
 
 done_testing();

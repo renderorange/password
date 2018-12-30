@@ -7,6 +7,21 @@ use FindBin       ();
 
 my $password_bin = "$FindBin::Bin/../../password";
 
+LENGTH: {
+    note( 'length' );
+
+    my $expected_length = 13;
+    my @options = ( '--length', $expected_length );
+
+    my ( $stdout, $stderr, $exit ) = Capture::Tiny::capture {
+        system( $password_bin, @options );
+    };
+
+    like( $stdout, qr/^[a-z0-9]{$expected_length}$/i, 'returned string contains expected characters' );
+    ok( !$stderr, 'no output was produced to stderr' );
+    is( $exit, 0, 'exit value was 0');
+}
+
 VERSION: {
     note( 'version' );
 

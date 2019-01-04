@@ -63,7 +63,7 @@ MAN: {
     like( $stdout, qr/$_/, "returned output contains $_ section" )
         foreach (
             'NAME', 'SYNOPSIS', 'OPTIONS', 'DESCRIPTION', 'EXAMPLES',
-            'SUBROUTINES/METHODS', 'EXIT', 'STATUS', 'DEPENDENCIES',
+            'SUBROUTINES/METHODS', 'EXIT STATUS', 'DEPENDENCIES',
             'AUTHOR', 'LICENSE AND COPYRIGHT'
         );
 

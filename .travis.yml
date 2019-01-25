@@ -20,7 +20,7 @@ install:
     - cpan-install --coverage
 script:
     - cpanm --quiet --notest strictures Math::Pari Crypt::Random
-    - cpanm --quiet --notest Test::More Test::Deep Test::Exception
+    - cpanm --quiet --notest Test::More Test::Deep Test::Exception Capture::Tiny
     - prove -v t/*
 after_success:
     - cover -report coveralls -ignore_re .t\$ -ignore_re t/

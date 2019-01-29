@@ -43,6 +43,21 @@ LENGTH: {
     ok( !$stderr, 'no output was produced to stderr' );
 }
 
+VERSION: {
+    note( 'version' );
+
+    my @options = ( '--version' );
+
+    my ( $stdout, $stderr, @result ) = Capture::Tiny::capture {
+        $class->_run( [ @options ] )
+    };
+
+    chomp( $stdout );
+
+    like( $stdout, qr/^[0-9\.0-9\.0-9]+$/i, 'returned string contains expected characters' );
+    ok( !$stderr, 'no output was produced to stderr' );
+}
+
 done_testing();
 exit;
 

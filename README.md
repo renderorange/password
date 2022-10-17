@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/renderorange/password.svg?branch=master)](https://travis-ci.org/renderorange/password) [![Coverage Status](https://coveralls.io/repos/github/renderorange/password/badge.svg?branch=master)](https://coveralls.io/github/renderorange/password?branch=master)
-
 # password
 
 generate cryptographically secure passwords
@@ -100,8 +98,7 @@ The generated password string.
 - strictures
 - Getopt::Long
 - Pod::Usage
-- Math::Pari
-- Crypt::Random
+- Math::Random::Secure
 
 ## AUTHOR
 
@@ -111,4 +108,4 @@ Blaine Motsinger, <blaine@renderorange.com>
 
 This software is available under the MIT license.
 
-Copyright (c) 2018 Blaine Motsinger
+Copyright (c) 2022 Blaine Motsinger

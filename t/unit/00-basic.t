@@ -8,8 +8,7 @@ my @required_modules = qw{
     strictures
     Getopt::Long
     Pod::Usage
-    Math::Pari
-    Crypt::Random
+    Math::Random::Secure
 };
 
 use_ok($_) foreach @required_modules;

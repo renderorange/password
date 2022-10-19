@@ -5,8 +5,7 @@ password - generate cryptographically secure passwords
 # SYNOPSIS
 
     password [--length <int>] [--special|--no-special]
-             [--version]
-             [--help]
+             [--version] [--help]
 
 # OPTIONS
 
@@ -28,9 +27,9 @@ password - generate cryptographically secure passwords
 
 # DESCRIPTION
 
-password generates cryptographically secure random passwords, using alphanumeric characters with case variation and optionally special characters.
+`password` generates cryptographically secure random passwords using alphanumeric characters with case variation and optional special characters.
 
-The logic can be used directly as a script or used as a module.
+`password` can be used as a script or as a perl module.
 
 # EXAMPLES
 
@@ -53,25 +52,22 @@ The logic can be used directly as a script or used as a module.
 - Get a 12 character length password
 
         require 'password';
-        my $object = password->new( length => 12 );
-
-        print $object->generate() . "\n";
+        my $object   = password->new( length => 12 );
+        my $password = $object->generate();
 
 - Get a 32 character length password
 
         require 'password';
-        my $object = password->new( length => 32 );
-
-        print $object->generate() . "\n";
+        my $object   = password->new( length => 32 );
+        my $password = $object->generate();
 
 - Get a 32 character length password with special characters
 
         require 'password';
-        my $object = password->new( length => 32, special => 1 );
+        my $object   = password->new( length => 32, special => 1 );
+        my $password = $object->generate();
 
-        print $object->generate() . "\n";
-
-# SUBROUTINES/METHODS
+# CONSTRUCTOR
 
 ## new
 
@@ -81,9 +77,7 @@ Constructor for the password object.
 
 - length
 
-    The length of the password to be generated.
-
-    Must be a positive integer.
+    The length of the password to be generated.  Must be a positive integer.
 
 ### RETURNS
 
@@ -94,6 +88,8 @@ The password object.
 - length must be a positive integer
 
     This exception is thrown when verification of the length argument doesn't pass.
+
+# METHODS
 
 ## generate
 
@@ -109,14 +105,16 @@ The generated password string.
 
 # EXIT STATUS
 
+The following exit statuses are returned when run as a script.
+
 - 0 - Indicates completion without failure
 - 1 - Indicates failure
 
 # DEPENDENCIES
 
-- Getopt::Long
-- Pod::Usage
-- Math::Random::Secure
+- [Getopt::Long](https://metacpan.org/pod/Getopt::Long)
+- [Pod::Usage](https://metacpan.org/pod/Pod::Usage)
+- [Math::Random::Secure](https://metacpan.org/pod/Math::Random::Secure)
 
 # AUTHOR
 

@@ -31,7 +31,7 @@ VERSION: {
         system( $password_bin, @options );
     };
 
-    like( $stdout, qr/\d+\.\d+\.\d+$/, 'returned string contains expected characters' );
+    like( $stdout, qr/\d+\.\d+$/, 'returned string contains expected characters' );
     ok( !$stderr, 'no output was produced to stderr' );
     is( $exit, 0, 'exit value was 0' );
 }

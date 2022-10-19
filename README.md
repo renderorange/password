@@ -6,7 +6,7 @@ password - generate cryptographically secure passwords
 
     password [--length] <int>
              [--version]
-             [--help] [--man]
+             [--help]
 
 # OPTIONS
 
@@ -21,10 +21,6 @@ password - generate cryptographically secure passwords
 - --help
 
     print this dialogue
-
-- --man
-
-    display the full documentation
 
 # DESCRIPTION
 

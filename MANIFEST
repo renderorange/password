@@ -1,0 +1,12 @@
+LICENSE
+Makefile.PL
+MANIFEST			This list of files
+MANIFEST.SKIP
+password
+README.md
+t/integration/run.t
+t/integration/run_options.t
+t/unit/00-basic.t
+t/unit/_run.t
+t/unit/generate.t
+t/unit/new.t

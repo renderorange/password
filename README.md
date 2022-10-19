@@ -4,15 +4,19 @@ password - generate cryptographically secure passwords
 
 # SYNOPSIS
 
-    password [--length] <int>
+    password [--length <int>] [--special|--no-special]
              [--version]
              [--help]
 
 # OPTIONS
 
-- --length
+- --length &lt;int>
 
     how long you want the password (defaults to 12)
+
+- --special | --no-special
+
+    should there be special characters in the password
 
 - --version
 
@@ -24,7 +28,7 @@ password - generate cryptographically secure passwords
 
 # DESCRIPTION
 
-password generates cryptographically secure random passwords, using alphanumeric characters with case variation.
+password generates cryptographically secure random passwords, using alphanumeric characters with case variation and optionally special characters.
 
 The logic can be used directly as a script or used as a module.
 
@@ -40,12 +44,30 @@ The logic can be used directly as a script or used as a module.
 
         password --length 32
 
+- Get a 32 character length password with special characters
+
+        password --length 32 --special
+
 ## As a module
 
 - Get a 12 character length password
 
         require 'password';
         my $object = password->new( length => 12 );
+
+        print $object->generate() . "\n";
+
+- Get a 32 character length password
+
+        require 'password';
+        my $object = password->new( length => 32 );
+
+        print $object->generate() . "\n";
+
+- Get a 32 character length password with special characters
+
+        require 'password';
+        my $object = password->new( length => 32, special => 1 );
 
         print $object->generate() . "\n";
 

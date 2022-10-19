@@ -14,14 +14,17 @@ HAPPY_PATH: {
     note( 'happy path' );
 
     my $object = password->new(
-        length => 12,
+        length  => 12,
+        special => 0,
     );
 
     my $numer_match = '\d';
     my $one_quant   = '+';
+    my $zero_quant  = '*';
 
     my $expected_object = {
-        length => re( $numer_match . $one_quant ),
+        length  => re( $numer_match . $one_quant ),
+        special => re( $numer_match . $zero_quant ),
     };
 
     bless $expected_object, 'password';

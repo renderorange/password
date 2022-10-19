@@ -114,7 +114,6 @@ The generated password string.
 
 # DEPENDENCIES
 
-- strictures
 - Getopt::Long
 - Pod::Usage
 - Math::Random::Secure

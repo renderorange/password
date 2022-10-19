@@ -5,7 +5,6 @@ use Test::More;
 use FindBin ();
 
 my @required_modules = qw{
-    strictures
     Getopt::Long
     Pod::Usage
     Math::Random::Secure

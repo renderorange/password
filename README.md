@@ -31,6 +31,19 @@ password - generate cryptographically secure passwords
 
 `password` can be used as a script or as a perl module.
 
+# INSTALLATION
+
+To install `password` as a script.
+
+- Generate the build and install tooling
+
+        perl Makefile.PL
+
+- Build, test, and install
+
+        make
+        make test && make install
+
 # EXAMPLES
 
 ## As a script

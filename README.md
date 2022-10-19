@@ -1,110 +1,111 @@
-# password
+# NAME
 
-generate cryptographically secure passwords
+password - generate cryptographically secure passwords
 
-## SYNOPSIS
+# SYNOPSIS
 
-```
-password [--length] <int> 
-         [--version]
-         [--help] [--man]
-```
+    password [--length] <int>
+             [--version]
+             [--help] [--man]
 
-## OPTIONS
+# OPTIONS
 
-```
---length     how long you want the password (defaults to 12)
---version    print the version and exit
---help       print this dialogue
---man        display the full documentation
-```
+- --length
 
-## DESCRIPTION
+    how long you want the password (defaults to 12)
+
+- --version
+
+    print the version and exit
+
+- --help
+
+    print this dialogue
+
+- --man
+
+    display the full documentation
+
+# DESCRIPTION
 
 password generates cryptographically secure random passwords, using alphanumeric characters with case variation.
 
 The logic can be used directly as a script or used as a module.
 
-## EXAMPLES
+# EXAMPLES
 
-### As a script
+## As a script
 
-Get a 12 character length password
+- Get a 12 character length password
 
-```
-password
-```
+        password
 
-Get a 32 character length password
+- Get a 32 character length password
 
-```
-password --length 32
-```
+        password --length 32
 
-### As a module
+## As a module
 
-Get a 12 character length password
+- Get a 12 character length password
 
-```
-require 'password';
-my $object = password->new( length => 12 );
+        require 'password';
+        my $object = password->new( length => 12 );
 
-print $object->generate() . "\n"; 
-```
+        print $object->generate() . "\n";
 
-## SUBROUTINES/METHODS
+# SUBROUTINES/METHODS
 
-### new
+## new
 
 Constructor for the password object.
 
-#### ARGUMENTS
+### ARGUMENTS
 
-##### length
+- length
 
-The length of the password to be generated.
+    The length of the password to be generated.
 
-Must be a positive integer.
+    Must be a positive integer.
 
-#### RETURNS
+### RETURNS
 
 The password object.
 
-#### EXCEPTIONS
+### EXCEPTIONS
 
-##### length must be a positive integer
+- length must be a positive integer
 
-This exception is thrown when verification of the length argument doesn't pass.
+    This exception is thrown when verification of the length argument doesn't pass.
 
-### generate
+## generate
 
 Generates the password based on the length as defined through the constructor.
 
-#### ARGUMENTS
+### ARGUMENTS
 
 None.
 
-#### RETURNS
+### RETURNS
 
 The generated password string.
 
-## EXIT STATUS
+# EXIT STATUS
 
 - 0 - Indicates completion without failure
 - 1 - Indicates failure
 
-## DEPENDENCIES
+# DEPENDENCIES
 
 - strictures
 - Getopt::Long
 - Pod::Usage
 - Math::Random::Secure
 
-## AUTHOR
+# AUTHOR
 
 Blaine Motsinger, <blaine@renderorange.com>
 
-## LICENSE AND COPYRIGHT
+# LICENSE AND COPYRIGHT
 
 This software is available under the MIT license.
 

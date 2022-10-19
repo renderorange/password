@@ -64,12 +64,7 @@ EXCEPTIONS: {
 
     like( $stderr, qr/$expected_error/, 'returned stderr contains the expected error' );
     like( $stdout, qr/Usage/, 'returned stdout contains Usage section' );
-
-    TODO: {
-        local $TODO = 'fine tune exit value on exception';
-
-        isnt( $exit, 0, 'exit value was not 0' );
-    };
+    isnt( $exit, 0, 'exit value was not 0' );
 }
 
 done_testing();

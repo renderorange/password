@@ -10,13 +10,13 @@ WriteMakefile(
         'meta-spec' => { version => 2 },
         resources => {
             bugtracker => {
-                web => 'https://dev.adventurehound.io/renderorange/password/issues',
+                web => 'https://github.com/renderorange/password/issues',
             },
-            homepage => 'https://dev.adventurehound.io/renderorange/password',
+            homepage => 'https://github.com/renderorange/password',
             repository => {
                 type => 'git',
-                url => 'https://dev.adventurehound.io/renderorange/password.git',
-                web => 'https://dev.adventurehound.io/renderorange/password',
+                url => 'https://github.com/renderorange/password.git',
+                web => 'https://github.com/renderorange/password',
             },
         },
     },
